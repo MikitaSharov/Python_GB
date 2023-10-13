@@ -14,3 +14,10 @@ p = 27
 9 3
 """
 
+x = 12
+y = 27
+
+for n in range(1, 1001):
+    if n + (x - n) == x and n * (x - n) == y:
+        m = x - n
+        print(n, m)
