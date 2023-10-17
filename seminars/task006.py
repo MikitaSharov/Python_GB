@@ -14,12 +14,11 @@ sum1 = 0
 sum2 = 0
 
 while n > 0:
-    if n > 1000:
+    if n >= 1000:
         sum1 += n%10
-        n //= 10
     else:
         sum2 += n%10
-        n //= 10
+    n //= 10
 if sum1 == sum2:
     print('yes')
 else:

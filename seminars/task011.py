@@ -4,11 +4,11 @@ Input: 5
 Output: 6
 """
 
-A = 2
+A = 5
 first_fib = 1
 prev_fib = first_fib
 next_fib = 0
-count_fib = 2
+count_fib = 3
 
 while next_fib < A:
     next_fib = prev_fib + first_fib

@@ -4,10 +4,10 @@ Input: 5
 Output: 120
 """
 
-n = 6
+n = 5
 N = 1
 
-while n > 0:
+while n > 1:
     N *= n
     n -= 1
 print(N)
