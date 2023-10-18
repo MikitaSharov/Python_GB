@@ -42,14 +42,14 @@ russian_scores = {
     'Ф': 10, 'Щ': 10, 'Ъ': 10
 }
 
-word = input("Введите слово: ").upper()
+k = 'ноутбук'
 
 score = 0
 
-for letter in word:
+for letter in k.upper():
     if letter in english_scores:
         score += english_scores[letter]
     elif letter in russian_scores:
         score += russian_scores[letter]
 
-print(f"Стоимость слова '{word}' равна {score} очков.")
+print(score)
