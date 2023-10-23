@@ -14,5 +14,5 @@ for i in string_input:
     else:
         # dict_result[i]+=1
         print(f'{i}_{dict_result[i]}', end=' ')
-    dict_result[i]=dict_result.get(i, 0) + 1
+    dict_result[i]=dict_result.get(i, 0) + 1 # возвращает 0 (в этом случае) или то что напишешь
             
