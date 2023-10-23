@@ -33,3 +33,33 @@ unton
 Sample Output 2:
 1 2 7 8
 """
+
+virus = 'anton'
+n = int(input('Введите кол-во холодильников: '))
+infected_fridges = []
+
+for i in range(n):
+    code_fridge = (input(f'Введите код {i + 1} холодильника: '))
+
+    index = 0
+    found = False
+    for letter in virus:
+        while index < len(code_fridge) and code_fridge[index] != letter: # 253235235a5323352n25235352t253523523235oo235523523523n
+            index += 1
+        if index == len(code_fridge):
+            found = False
+            break
+        index += 1 
+        found = True
+        """ # с .index()
+        if letter in code_fridge:
+            index = code_fridge.index(letter)
+            code_fridge = code_fridge[index+1:]  # Обрезаем строку после найденного символа
+        else:
+            found = False
+            break
+        found = True
+        """
+    if found:
+        infected_fridges.append(i + 1)
+print(infected_fridges)
