@@ -33,3 +33,17 @@ unton
 Sample Output 2:
 1 2 7 8
 """
+
+
+n = int(input('введите кол-во холодильников: '))
+user_dict = {}
+virus = 'anton'
+virus_check = ''
+
+for key in range(n):
+    user_dict[key + 1] = input('введите код холодильника: ')
+    for i in virus:
+        virus_check += user_dict.get(i)
+        print(virus_check)
+        
+        
