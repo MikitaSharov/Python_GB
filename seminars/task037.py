@@ -6,6 +6,6 @@ def function1 (quantity):
     if quantity == 0:
         return '+'
     number = input('Введите число: ')
-    return function1(quantity-1) + number
+    return function1(quantity - 1) + number
 
 print(function1(4))
