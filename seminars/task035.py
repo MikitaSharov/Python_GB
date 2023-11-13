@@ -12,4 +12,16 @@ def prime_number(number):
         return True
     return False
 print(prime_number(0))
+
+# рекурсия
+
+# count = 0
+# def prosto(n, i = 2):
+#     if n == 2 or i * i > n:
+#         return True
+#     if n % i == 0:
+#         return False
+#     return prosto(n, i+1)
+
+# print(prosto(10))
     
