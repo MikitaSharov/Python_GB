@@ -4,9 +4,7 @@
 Вывод: 7 9 11 13 15 """
 
 def arifm_progres(first_el, diff, qty_elements):
-    result = [first_el]
-    for i in range(qty_elements - 1):
-        result.append(result[i] + diff)
-    print(result)
+    for i in range(qty_elements):
+        print(first_el + i * diff)
 
 arifm_progres(7, 2, 5)
