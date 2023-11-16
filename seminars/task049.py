@@ -7,7 +7,7 @@ orbits = [(1, 3), (2.5, 10), (7, 2), (6, 6), (4, 3)]
 
 def find_farthest_orbit(spis):
     result = max(spis, key = lambda len: len[0] * len[1])
-        
+    # key это функция, возвращающающая ОДНО значение len для max из spis на каждой итерации spis
     return result
 
 print(*find_farthest_orbit(orbits))
