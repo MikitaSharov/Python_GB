@@ -19,4 +19,3 @@ def cakes(user_receipt_list, user_product_list):
         for product_product_list, weight_product_list in user_product_list.items():
             if product_receipt_list == product_product_list and weight_product_list > weight_receipt_list:
                 
-    

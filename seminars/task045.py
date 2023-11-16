@@ -3,18 +3,19 @@
 Ввод: 300 
 Вывод: 220 284 """
 
-k = 284
-spis = []
-sum = 0
+k = 300
+d = {}
+summa = 0
 
-for i in range(1, k // 2 + 1):
-    if k % i == 0:
-        spis.append(i)
-        sum += i
+for i in range(1, k):
+    for j in range(1, i):
+        if i % j == 0:
+            summa+=j
+    d[i] = summa
+    summa = 0
 
-
-
-
-
-print(spis, sum)
+for i in range(1 , k):
+    # if d[i] in d:
+    if d.get(d[i], 0) == i and d[i] != i:
+        print(i)
 
