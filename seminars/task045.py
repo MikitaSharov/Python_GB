@@ -7,6 +7,7 @@ k = 284
 spis = []
 sum = 0
 
+
 for i in range(1, k // 2 + 1):
     if k % i == 0:
         spis.append(i)
