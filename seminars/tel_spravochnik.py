@@ -34,51 +34,72 @@ def update_contact(contacts, last_name, first_name, middle_name, phone_number):
 def delete_contact(contacts, last_name, first_name):
     contacts[:] = [contact for contact in contacts if contact['last_name'].lower() != last_name.lower() or contact['first_name'].lower() != first_name.lower()]
 
+def copy_contact(source_contacts, destination_contacts, line_number):
+    if 0 < line_number <= len(source_contacts):
+        contact_to_copy = source_contacts[line_number - 1]
+        destination_contacts.append(contact_to_copy)
+        print("Контакт успешно скопирован.")
+    else:
+        print("Некорректный номер строки для копирования.")
+
 def main():
-    file_path = "phonebook.txt"
-    contacts = load_data(file_path)
+    source_file_path = "phonebook_source.txt"
+    destination_file_path = "phonebook_destination.txt"
+
+    source_contacts = load_data(source_file_path)
+    destination_contacts = load_data(destination_file_path)
 
     while True:
-        print("\n1. Вывести все контакты")
-        print("2. Добавить контакт")
-        print("3. Поиск контакта")
-        print("4. Изменить контакт")
-        print("5. Удалить контакт")
-        print("6. Выйти")
+        print("\n1. Вывести все контакты (Источник)")
+        print("2. Вывести все контакты (Назначение)")
+        print("3. Добавить контакт")
+        print("4. Поиск контакта")
+        print("5. Изменить контакт")
+        print("6. Удалить контакт")
+        print("7. Скопировать контакт из источника в назначение")
+        print("8. Выйти")
 
-        choice = input("Выберите действие (1/2/3/4/5/6): ")
+        choice = input("Выберите действие (1/2/3/4/5/6/7/8): ")
 
         if choice == '1':
-            display_contacts(contacts)
+            print("\nКонтакты (Источник):")
+            display_contacts(source_contacts)
         elif choice == '2':
+            print("\nКонтакты (Назначение):")
+            display_contacts(destination_contacts)
+        elif choice == '3':
             last_name = input("Введите фамилию: ")
             first_name = input("Введите имя: ")
             middle_name = input("Введите отчество: ")
             phone_number = input("Введите номер телефона: ")
-            add_contact(contacts, last_name, first_name, middle_name, phone_number)
-            save_data(file_path, contacts)
-        elif choice == '3':
+            add_contact(source_contacts, last_name, first_name, middle_name, phone_number)
+            save_data(source_file_path, source_contacts)
+        elif choice == '4':
             search_key = input("Выберите характеристику для поиска (last_name/first_name/middle_name/phone_number): ")
             search_value = input("Введите значение для поиска: ")
-            results = search_contact(contacts, search_key, search_value)
+            results = search_contact(source_contacts, search_key, search_value)
             if results:
-                print("\nРезультаты поиска:")
+                print("\nРезультаты поиска (Источник):")
                 display_contacts(results)
             else:
                 print("\nНичего не найдено.")
-        elif choice == '4':
+        elif choice == '5':
             last_name = input("Введите фамилию для изменения: ")
             first_name = input("Введите имя для изменения: ")
             middle_name = input("Введите новое отчество: ")
             phone_number = input("Введите новый номер телефона: ")
-            update_contact(contacts, last_name, first_name, middle_name, phone_number)
-            save_data(file_path, contacts)
-        elif choice == '5':
+            update_contact(source_contacts, last_name, first_name, middle_name, phone_number)
+            save_data(source_file_path, source_contacts)
+        elif choice == '6':
             last_name = input("Введите фамилию для удаления: ")
             first_name = input("Введите имя для удаления: ")
-            delete_contact(contacts, last_name, first_name)
-            save_data(file_path, contacts)
-        elif choice == '6':
+            delete_contact(source_contacts, last_name, first_name)
+            save_data(source_file_path, source_contacts)
+        elif choice == '7':
+            line_number = int(input("Введите номер строки для копирования из источника в назначение: "))
+            copy_contact(source_contacts, destination_contacts, line_number)
+            save_data(destination_file_path, destination_contacts)
+        elif choice == '8':
             break
         else:
             print("Некорректный ввод. Попробуйте снова.")
