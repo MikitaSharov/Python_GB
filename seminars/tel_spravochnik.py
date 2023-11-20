@@ -15,8 +15,10 @@ def save_data(file_path, contacts):
             file.write(f"{contact['last_name']},{contact['first_name']},{contact['middle_name']},{contact['phone_number']}\n")
 
 def display_contacts(contacts):
-    for contact in contacts:
-        print(f"{contact['last_name']}, {contact['first_name']}, {contact['middle_name']}, {contact['phone_number']}")
+    if len(contacts) > 0:
+        for contact in contacts:
+            print(f"{contact['last_name']}, {contact['first_name']}, {contact['middle_name']}, {contact['phone_number']}")
+    else: print(f"Файл не существует.")
 
 def add_contact(contacts, last_name, first_name, middle_name, phone_number):
     contacts.append({'last_name': last_name, 'first_name': first_name, 'middle_name': middle_name, 'phone_number': phone_number})
