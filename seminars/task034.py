@@ -20,9 +20,24 @@ phrases = stroka.split()
 count_func = lambda word: sum(1 for char in word if char in 'аеёиоуыэюя')
 
 ritm = set(map(count_func, phrases))
-
-if len(ritm) == 1 and len(phrases) > 1:
+if len(phrases) == 1:
+    print('Количество фраз должно быть больше одной!')
+elif len(ritm) == 1 and len(phrases) > 1:
     print("Парам пам-пам")
 else:
     print("Пам парам")
-    
+
+# vowels = ['а', 'е', 'ё', 'и', 'й', 'о', 'у', 'ы', 'э', 'ю', 'я']
+# phrases = stroka.split()
+# if len(phrases) < 2:
+#  print('Количество фраз должно быть больше одной!')
+# else:
+#  countVowels = []
+
+#  for i in phrases:
+#   countVowels.append(len([x for x in i if x.lower() in vowels]))
+
+#  if countVowels.count(countVowels[0]) == len(countVowels):
+#   print('Парам пам-пам')
+#  else:
+#   print('Пам парам')
