@@ -14,6 +14,7 @@
 Сохранение заметок необходимо сделать в формате json или csv формат (разделение полей рекомендуется делать через точку с запятой). Реализацию пользовательского интерфейса студент может делать как ему удобнее, можно делать как параметры запуска программы (команда, данные), можно делать как запрос команды с консоли и последующим вводом данных, как-то ещё, на усмотрение студента. """
 
 from note_manager import NoteManager
+import os
 
 
 def main_menu():
@@ -29,6 +30,16 @@ def note_menu():
     print("4. Назад в главное меню")
     print("0. Выход")
 
+def get_int_input(prompt):
+    while True:
+        user_input = input(prompt)
+        if not user_input:
+            return None
+        if user_input.isdigit():
+            return int(user_input)
+        else:
+            print("Invalid input. Please enter a number.")
+
 def main ():
 
     file_path = "Python_GB/Python_GB/Notes/notes.json"
@@ -36,7 +47,7 @@ def main ():
 
     while True:
         main_menu()
-        choice_main_menu = input("Выберите действие 1/2/3/4")
+        choice_main_menu = input("Выберите действие 1/2/3/0: ")
 
         if choice_main_menu == "1":
             notes = note_manager.get_notes_list()
@@ -56,6 +67,7 @@ def main ():
             body = input("Введите тело заметки: ")
             note_manager.add_note(title, body)
             print("Заметка создана")
+            continue
         elif choice_main_menu == "0":
             print("Пока-пока")
             break
