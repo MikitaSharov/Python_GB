@@ -16,3 +16,15 @@ class NoteManager:
                 return notes
         except FileNotFoundError:
             return []
+        
+    def save_notes(self):
+        notes_data = [note.as_dict() for note in self.notes]
+        with open(self.file_path, "w") as file:
+            json.dump(notes_data, file)
+        
+    def get_notes_list(self):
+        return self.notes
+    
+    def search_notes_by_data(self, search_date):
+        try:
+            search_date = datetime.strptime(search_date, "%d.%m.%y").date()
