@@ -30,7 +30,7 @@ def note_menu():
 
 def main ():
 
-    file_path = "Python_GB/Python_GB/Notes/notes.json"
+    file_path = "Python_GB/Notes/notes.json"
     note_manager = NoteManager(file_path)
 
     while True:

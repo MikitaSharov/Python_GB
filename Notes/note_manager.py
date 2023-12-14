@@ -20,8 +20,8 @@ class NoteManager:
         
     def save_notes(self):
         notes_data = [note.as_dict() for note in self.notes]
-        with open(self.file_path, "w") as file:
-            json.dump(notes_data, file)
+        with open(self.file_path, "w", encoding="utf-8") as file:
+            json.dump(notes_data, file, ensure_ascii=False, indent=2)
         
     def get_notes_list(self):
         return self.notes
