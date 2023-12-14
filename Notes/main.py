@@ -14,8 +14,6 @@
 Сохранение заметок необходимо сделать в формате json или csv формат (разделение полей рекомендуется делать через точку с запятой). Реализацию пользовательского интерфейса студент может делать как ему удобнее, можно делать как параметры запуска программы (команда, данные), можно делать как запрос команды с консоли и последующим вводом данных, как-то ещё, на усмотрение студента. """
 
 from note_manager import NoteManager
-import os
-
 
 def main_menu():
     print("\n1. Показать все заметки")
@@ -29,16 +27,6 @@ def note_menu():
     print("3. Удалить")
     print("4. Назад в главное меню")
     print("0. Выход")
-
-def get_int_input(prompt):
-    while True:
-        user_input = input(prompt)
-        if not user_input:
-            return None
-        if user_input.isdigit():
-            return int(user_input)
-        else:
-            print("Invalid input. Please enter a number.")
 
 def main ():
 
@@ -75,14 +63,15 @@ def main ():
             print("Что-то не то ввели! Надо циферку от 1 до 3 или 0. Попробуй ещё разок.")
             continue
 
-        note_id = input("Введите ID заметки для работы с ней или 0 для выхода: ")
+        note_id = input("Введите ID заметки для работы с ней или ничего для возврата в предыдущее меню: ")
 
-        if note_id == "0":
-            break
-        if not note_id.isdigit() :
+        if not note_id:
+            continue
+        if note_id.isdigit() :
+            note_id = int(note_id)
+        else:
             print("Вводить надо цифры. Попробуй еще разок")
 
-        note_id = int(note_id)
 
         if choice_main_menu == "1" and note_id not in [note.note_id for note in notes]:
             print(f"Заметки с ID {note_id} не существует попробуй еще разок")
